@@ -1,4 +1,7 @@
 class Pin < ActiveRecord::Base
+
+	acts_as_votable
+	
 	#PaperClip
 	has_attached_file :image, styles: {medium: "300x300"}
 
@@ -7,4 +10,6 @@ class Pin < ActiveRecord::Base
 	#Associations
 	belongs_to :user
 	
+	
+
 end
