@@ -17,6 +17,8 @@ gem 'turbolinks'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 gem 'simple_form', '~> 3.2'
+gem 'devise', '~> 3.5', '>= 3.5.2'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 
 gem 'jbuilder', '~> 2.0'
 
