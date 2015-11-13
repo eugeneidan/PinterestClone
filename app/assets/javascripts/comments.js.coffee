@@ -2,10 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-	$('#pins').imagesLoaded ->
-	  $('#pins').masonry
-	    itemSelector: '.box',
-	    isFitWidth: true
-  
-  $('.comment_form').hide()
+$(document).ready ->
+	$('.glyphicon-plus').click ->
+		$(".comment_form").toggle();
+		$(this).toggleClass("glyphicon-plus glyphicon-minus")

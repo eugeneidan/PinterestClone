@@ -1,0 +1,10 @@
+.comment.clearfix
+	.comment_content
+		%hr
+		%p
+			.comment_body= comment.body
+			.label.label-default= time_ago_in_words(comment.created_at) + " ago by " + comment.user.email unless comment.user.nil?
+
+			- if current_user == comment.user
+				= link_to "remove", [comment.pin, comment], method: :delete, class: "label label-danger", data: { confirm: "Are you sure?"}
+			 

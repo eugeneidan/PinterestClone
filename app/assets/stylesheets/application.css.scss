@@ -16,6 +16,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "normalize";
 
 body {
 	background: #E9E9E9;
@@ -98,6 +99,7 @@ nav {
 			color: #868686;
 			line-height: 1.75;
 			margin: 0;
+			padding: 10px;
 		}
 	}
 	.panel-footer {

@@ -4,22 +4,44 @@
 			.panel-heading.pin_image
 				= image_tag @pin.image.url
 			.panel-body
-				%h1= @pin.title
+				%h2= @pin.title
 				%p.description= @pin.description
-				%p
-				Submitted by
-				= @pin.user.email
+				
+				
+				%p.comments
+				%h4
+					%span.badge= @pin.comments.count
+					Comments					
+					
+					.btn-group.pull-right					
+						%span.glyphicon.glyphicon-plus
+							
+
+				- if !@pin.comments.empty?
+					= render @pin.comments
+
+				- else
+					%p.description There is no comment
+				
+				- if user_signed_in?
+					%span.comment_form
+						= render "comments/form"
+				
 			.panel-footer
 				.row
 					.col-md-6
 						%p.user
 						Submitted by
 						= @pin.user.email
-					.col-md-6
-						.btn-group.pull-right
+					
+					.btn-group.pull-right
+						- if current_user == @pin.user
 							= link_to like_pin_path(@pin), method: :put, class: "btn btn-default" do
 								%span.glyphicon.glyphicon-heart
 									= @pin.get_upvotes.size
-							- if user_signed_in?
+							
 								= link_to "Edit", edit_pin_path, class: "btn btn-default"
 								= link_to "Delete", pin_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default"
+			
+			
+						
